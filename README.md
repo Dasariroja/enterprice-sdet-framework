@@ -1,4 +1,4 @@
-# enterprice-sdet-framework
+# enterprise-sdet-framework
 Enterprise SDET Playwright Framework using Page Object Model
 
 # Pre-requests
