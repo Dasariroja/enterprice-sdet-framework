@@ -1,16 +1,13 @@
 import { test, expect } from '@playwright/test';
-import { URL } from '../../test-setting';
+import { password, URL, username } from '../../test-setting';
+import { LoginPage } from '../../pages/LoginPage';
 
 test('Login page', async ({ page }) => {
   await page.goto(URL);
   await expect(page).toHaveTitle(/Swag Labs/);
-  await page.locator('[data-test="username"]').click();
-  await page.getByText('Swag Labs').click();
-  await page.locator('[data-test="username"]').click();
-  await page.locator('[data-test="username"]').fill('standard_user');
-  await page.locator('[data-test="password"]').click();
-  await page.locator('[data-test="password"]').fill('secret_sauce');
-  await page.locator('[data-test="login-button"]').click();
+
+  const loginPage = new LoginPage(page);
+  await loginPage.login(username, password);
 });
 
 test.skip('test', async ({ page }) => {
